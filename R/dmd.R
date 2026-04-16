@@ -7,7 +7,6 @@
 #' @param svd.rank; int rank of SVD
 #' @return dmd.obj; list containing lambda (vector of DMD eigenvalues), Phi (matrix of DMD modes) and b (vector of mode amplitudes)
 #' @export
-.packageName <- 'dmdr'
 
 dmd = function(x, y=NULL, svd.rank) {
   # svd.rank must be within bounds of function

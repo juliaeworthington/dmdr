@@ -5,7 +5,7 @@
 #' @return X.recon; matrix, reconstructed approximation of X matrix
 #' @export
 
-dmd.reconst = function(dmd.obj) {
+dmd_reconst = function(dmd.obj) {
   # extracting data from dmd list
   lambda = dmd.obj$lambda; Phi = dmd.obj$Phi; b = dmd.obj$b; nt = dmd.obj$nt
 

@@ -12,7 +12,7 @@
 #' @param save; boolean, saves plot if TRUE, prints plot if FALSE
 #' @return p; plot
 #' @export
-plot.modes.num = function(dmd.obj, x, mode.num, complex.part = "real", save = FALSE) {
+plot_modes_num = function(dmd.obj, x, mode.num, complex.part = "real", save = FALSE) {
   # extracting data from dmd list
   lambda = dmd.obj$lambda; Phi = dmd.obj$Phi; b = dmd.obj$b
 
@@ -35,7 +35,7 @@ plot.modes.num = function(dmd.obj, x, mode.num, complex.part = "real", save = FA
   if (length(lambda)<=8) {set2 = brewer.pal(8, "Set2")}
 
   # plot title
-  title = paste("Mode", mode.num, "-", complex.part)
+  title = paste("Mode", mode.num)
 
   # creating data frame of data to be plotted (x and mode)
   df = data.frame(x, mode.val)
@@ -66,7 +66,7 @@ plot.modes.num = function(dmd.obj, x, mode.num, complex.part = "real", save = FA
 #' @return p; plot
 #' @export
 
-plot.dynamics.num = function(dmd.obj, t, mode.num, complex.part = "real", save = FALSE) {
+plot_dynamics_num = function(dmd.obj, t, mode.num, complex.part = "real", save = FALSE) {
   # extracting data from dmd list
   lambda = dmd.obj$lambda; Phi = dmd.obj$Phi; b = dmd.obj$b
 
@@ -89,7 +89,7 @@ plot.dynamics.num = function(dmd.obj, t, mode.num, complex.part = "real", save =
   if (length(lambda)<=8) {set2 = brewer.pal(8, "Set2")}
 
   # plot title
-  title = paste("Mode", mode.num, "Dynamics -", complex.part)
+  title = paste("Mode", mode.num, "Dynamics")
 
   # creating data frame of data to be plotted (x and mode)
   df = data.frame(t, dynamics.val)
@@ -116,7 +116,7 @@ plot.dynamics.num = function(dmd.obj, t, mode.num, complex.part = "real", save =
 #' @param save; boolean, saves plot if TRUE, prints plot if FALSE
 #' @return p; plot
 #' @export
-plot.eigs.discrete = function(dmd.obj, save = FALSE) {
+plot_eigs_discrete = function(dmd.obj, save = FALSE) {
   # extracting data from dmd list
   lambda = dmd.obj$lambda; Phi = dmd.obj$Phi; b = dmd.obj$b
 
@@ -152,13 +152,13 @@ plot.eigs.discrete = function(dmd.obj, save = FALSE) {
 #' @param save; boolean, saves plot if TRUE, prints plot if FALSE
 #' @return p; plot
 #' @export
-plot.modes = function(dmd.obj, x, complex.part = "real", save = FALSE) {
+plot_modes = function(dmd.obj, x, complex.part = "real", save = FALSE) {
   # extracting data from dmd list
   lambda = dmd.obj$lambda; n = length(lambda)
 
   # plot all modes for dmd
-  p = plot.modes.num(dmd.obj, x, 1, complex.part = complex.part, save = FALSE)
-  for (i in 2:n) {p = p + plot.modes.num(dmd.obj, x, i, complex.part = complex.part, save = FALSE)}
+  p = plot_modes_num(dmd.obj, x, 1, complex.part = complex.part, save = FALSE)
+  for (i in 2:n) {p = p + plot_modes_num(dmd.obj, x, i, complex.part = complex.part, save = FALSE)}
 
   # save plot as png or return plot
   if (save==TRUE) {png = paste("dmd modes.png"); ggsave(png, plot = p, width = 6*n/2, height = 4, dpi = 150)}
@@ -173,13 +173,13 @@ plot.modes = function(dmd.obj, x, complex.part = "real", save = FALSE) {
 #' @param save; boolean, saves plot if TRUE, prints plot if FALSE
 #' @return p; plot
 #' @export
-plot.dynamics = function(dmd.obj, t, complex.part = "real", save = FALSE) {
+plot_dynamics = function(dmd.obj, t, complex.part = "real", save = FALSE) {
   # extracting data from dmd list
   lambda = dmd.obj$lambda; n = length(lambda)
 
   # plot all modes for dmd
-  p = plot.dynamics.num(dmd.obj, t ,1, complex.part = complex.part, save = FALSE)
-  for (i in 2:n) {p = p + plot.dynamics.num(dmd.obj, t, i, complex.part = complex.part, save = FALSE)}
+  p = plot_dynamics_num(dmd.obj, t ,1, complex.part = complex.part, save = FALSE)
+  for (i in 2:n) {p = p + plot_dynamics_num(dmd.obj, t, i, complex.part = complex.part, save = FALSE)}
 
   # save plot as png or return plot
   if (save==TRUE) {png = paste("dmd mode dynamics.png"); ggsave(png, plot = p, width = 6, height = 4, dpi = 150)}
@@ -195,8 +195,8 @@ plot.dynamics = function(dmd.obj, t, complex.part = "real", save = FALSE) {
 #' @param save; boolean, saves plot if TRUE, prints plot if FALSE
 #' @return p; plot
 #' @export
-plot.sum = function(dmd.obj, x, t, complex.part = "real", save = FALSE) {
-  p = plot.eigs.discrete(dmd.obj, save = FALSE) / plot.modes(dmd.obj, x, complex.part = complex.part, save = FALSE) / plot.dynamics(dmd.obj, t, complex.part = complex.part, save = FALSE)
+plot_sum = function(dmd.obj, x, t, complex.part = "real", save = FALSE) {
+  p = plot_eigs_discrete(dmd.obj, save = FALSE) / plot_modes(dmd.obj, x, complex.part = complex.part, save = FALSE) / plot_dynamics(dmd.obj, t, complex.part = complex.part, save = FALSE)
   if (save==TRUE) {png = paste("dmd plot summary.png"); ggsave(png, plot = p, width = 3, height = 3, dpi = 300, scale = 5)}
   else {return(p)}
 }
