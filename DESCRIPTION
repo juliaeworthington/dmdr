@@ -1,0 +1,24 @@
+Package: dmdr
+Type: Package
+Title: Dynamic Mode Decomposition
+Version: 0.1.0
+Authors@R: c(
+    person(
+      "Julia", "Worthington",
+      email = "julia.worthington@colorado.edu",
+      role = c("aut", "cre")
+    )
+  )
+Description: This package computes the dynamic mode decomposition (DMD)
+    of data and plots the resulting modes, underlying dynamics, and eigenvalues.
+    It also approximates the original data using the DMD.
+License: None
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    ggforce,
+    ggplot2,
+    patchwork,
+    pracma,
+    RColorBrewer
+RoxygenNote: 7.3.3
