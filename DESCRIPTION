@@ -22,3 +22,5 @@ Imports:
     pracma,
     RColorBrewer
 RoxygenNote: 7.3.3
+URL: https://github.com/juliaeworthington/dmdr
+BugReports: https://github.com/juliaeworthington/dmdr/issues
