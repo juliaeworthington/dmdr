@@ -2,6 +2,7 @@
 
 export(dmd)
 export(dmd_reconst)
+export(plot_contour)
 export(plot_dynamics)
 export(plot_dynamics_num)
 export(plot_eigs_discrete)

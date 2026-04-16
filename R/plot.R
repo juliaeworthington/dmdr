@@ -200,3 +200,21 @@ plot_sum = function(dmd.obj, x, t, complex.part = "real", save = FALSE) {
   if (save==TRUE) {png = paste("dmd plot summary.png"); ggsave(png, plot = p, width = 3, height = 3, dpi = 300, scale = 5)}
   else {return(p)}
 }
+#' Contour Plot
+#'
+#' Plots data matrix using a filled contour plot.
+#' @param X; matrix, raw data matrix or dmd_reconst() output data matrix
+#' @param complex.part; character,  desired mode for plotting, "real", "imaginary", "phase", or "magnitude"
+#' @param save; boolean, saves plot if TRUE, prints plot if FALSE
+#' @return p; plot
+#' @export
+plot_contour = function(X, complex.part = "real"){
+  if (complex.part == "imaginary") {X.val = Im(X)}
+  else if (complex.part == "phase") {X.val = Arg(X)}
+  else if (complex.part == "magnitude") {X.val = Mod(X)}
+  else {X.val = Re(X)}
+  X.df = data.frame(expand.grid(x = 1:nrow(X), y = 1:ncol(X)), z = as.vector(X.val))
+  p = ggplot(X.df, aes(x = x, y = y, z = z)) + geom_contour_filled()
+  if (save==TRUE) {png = paste("filled contour plot.png"); ggsave(png, plot = p, width = 6, height = 4, dpi = 150)}
+  else {return(p)}
+}
