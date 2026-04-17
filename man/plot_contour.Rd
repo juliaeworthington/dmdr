@@ -4,7 +4,7 @@
 \alias{plot_contour}
 \title{Contour Plot}
 \usage{
-plot_contour(X, complex.part = "real")
+plot_contour(X, complex.part = "real", save = FALSE)
 }
 \arguments{
 \item{X;}{matrix, raw data matrix or dmd_reconst() output data matrix}

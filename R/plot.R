@@ -208,7 +208,7 @@ plot_sum = function(dmd.obj, x, t, complex.part = "real", save = FALSE) {
 #' @param save; boolean, saves plot if TRUE, prints plot if FALSE
 #' @return p; plot
 #' @export
-plot_contour = function(X, complex.part = "real"){
+plot_contour = function(X, complex.part = "real", save = FALSE){
   if (complex.part == "imaginary") {X.val = Im(X)}
   else if (complex.part == "phase") {X.val = Arg(X)}
   else if (complex.part == "magnitude") {X.val = Mod(X)}
