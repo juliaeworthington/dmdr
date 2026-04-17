@@ -8,7 +8,7 @@ This package can be downloaded directly from the Github repository using the rem
 
 `install.packages('remotes')`
 
-`library('remotes')`
+`library(remotes)`
 
 `devtools::install_github('juliaeworthington/dmdr')`
 
