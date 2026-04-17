@@ -4,8 +4,10 @@ This package implements the SVD-based dynamic mode decomposition (DMD) algorithm
 
 ### Installation
 
-This package can be downloaded directly from the Github repository using the devtools package.
-`install.packages('devtools')`
+This package can be downloaded directly from the Github repository using the remotes package.
+`install.packages('remotes')`
+
+`library('remotes')`
 
 `devtools::install_github('juliaeworthington/dmdr')`
 
