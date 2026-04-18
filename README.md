@@ -13,7 +13,7 @@ This package can be downloaded directly from the Github repository using the dev
 `devtools::install_github('juliaeworthington/dmdr')`
 
 ### Tutorials
-A basic tutorial of the available functions is available in the tutorials folder.
+A basic tutorial of the available functions is available in the tutorials folder. Do not run the tutorial in Google Colab as the `dmd()` function produces erroneous values. RStudio and CSEL do not have this issue.
 
 ### Notes
 
